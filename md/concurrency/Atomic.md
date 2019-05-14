@@ -1,10 +1,4 @@
----
-title: Atomic
-categories: 
-- concurrent
-tags:
-
----
+# 原子类Atomic
 
 > 个人觉得这一节掌握基本的使用即可！
 
