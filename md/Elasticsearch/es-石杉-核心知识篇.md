@@ -7,6 +7,80 @@
 - [第02节：用大白话告诉你什么是Elasticsearch](#第02节用大白话告诉你什么是Elasticsearch)
 - [第03节：Elasticsearch的功能、适用场景以及特点介绍](#第03节Elasticsearch的功能适用场景以及特点介绍)
 - [第04节：手工画图剖析Elasticsearch核心概念：NRT、索引、分片、副本等](#第04节手工画图剖析Elasticsearch核心概念NRT索引分片副本等)
+- [第05节：在windows上安装和启动Elasticseach](#第05节在windows上安装和启动Elasticseach)
+- [第06节：快速入门案例实战之电商网站商品管理：集群健康检查，文档CRUD](#第06节快速入门案例实战之电商网站商品管理集群健康检查文档CRUD)
+- [第07节：快速入门案例实战之电商网站商品管理：多种搜索方式](#第07节快速入门案例实战之电商网站商品管理多种搜索方式)
+- [第08节：快速入门案例实战之电商网站商品管理：嵌套聚合，下钻分析，聚合分析](#第08节快速入门案例实战之电商网站商品管理嵌套聚合下钻分析聚合分析)
+- [第09节：手工画图剖析Elasticsearch的基础分布式架构](#第09节手工画图剖析Elasticsearch的基础分布式架构)
+- [第10节：shard&replica机制再次梳理以及单node环境中创建index图解](#第10节shardreplica机制再次梳理以及单node环境中创建index图解)
+- [第11节：图解2个node环境下replica shard是如何分配的](#第11节图解2个node环境下replica-shard是如何分配的)
+- [第12节：图解横向扩容过程，如何超出扩容极限，以及如何提升容错性](#第12节图解横向扩容过程如何超出扩容极限以及如何提升容错性)
+- [第13节：图解Elasticsearch容错机制：master选举，replica容错，数据恢复](#第13节图解Elasticsearch容错机制master选举replica容错数据恢复)
+- [第14节：初步解析document的核心元数据以及图解剖析index创建反例](#第14节初步解析document的核心元数据以及图解剖析index创建反例)
+- [第15节：document id的手动指定与自动生成两种方式解析](#第15节document-id的手动指定与自动生成两种方式解析)
+- [第16节：document的_source元数据以及定制返回结果解析](#第16节document的_source元数据以及定制返回结果解析)
+- [第17节：document的全量替换、强制创建以及图解lazy delete机制](#第17节document的全量替换强制创建以及图解lazy-delete机制)
+- [第18节：深度图解剖析Elasticsearch并发冲突问题](#第18节深度图解剖析Elasticsearch并发冲突问题)
+- [第19节：深度图解剖析悲观锁与乐观锁两种并发控制方案](#第19节深度图解剖析悲观锁与乐观锁两种并发控制方案)
+- [第20节：图解Elasticsearch内部如何基于_version进行乐观锁并发控制](#第20节图解Elasticsearch内部如何基于_version进行乐观锁并发控制)
+- [第21节：上机动手实战演练基于_version进行乐观锁并发控制](#第21节上机动手实战演练基于_version进行乐观锁并发控制)
+- [第22节：上机动手实战演练基于external version进行乐观锁并发控制](#第22节上机动手实战演练基于external-version进行乐观锁并发控制)
+- [第23节：图解partial update实现原理以及动手实战演练](#第23节图解partial-update实现原理以及动手实战演练)
+- [第24节：上机动手实战演练基于groovy脚本进行partial update](#第24节上机动手实战演练基于groovy脚本进行partial-update)
+- [第25节：图解partial update乐观锁并发控制原理以及相关操作讲解](#第25节-图解partial-update乐观锁并发控制原理以及相关操作讲解)
+- [第26节：上机动手实战演练mget批量查询api](#第26节上机动手实战演练mget批量查询api)
+- [第27节：分布式文档系统_上机动手实战演练bulk批量增删改](#第27节分布式文档系统_上机动手实战演练bulk批量增删改)
+- [第28节：分布式文档系统_阶段性总结以及什么是distributed document store](#第28节分布式文档系统_阶段性总结以及什么是distributed-document-store)
+- [第29节：分布式文档系统_深度图解剖析document数据路由原理](#第29节分布式文档系统_深度图解剖析document数据路由原理)
+- [第30节：分布式文档系统_document增删改内部原理图解揭秘](#第30节分布式文档系统_document增删改内部原理图解揭秘)
+- [第31节：分布式文档系统_图解写一致性原理以及quorum机制深入剖析](#第31节分布式文档系统_图解写一致性原理以及quorum机制深入剖析)
+- [第32节：分布式文档系统_document查询内部原理图解揭秘](#第32节分布式文档系统_document查询内部原理图解揭秘)
+- [第33节：分布式文档系统_bulk api的奇特json格式与底层性能优化关系大揭秘](#第33节分布式文档系统_bulk-api的奇特json格式与底层性能优化关系大揭秘)
+- [第34节：初识搜索引擎_search结果深入解析（search timeout机制揭秘）](#第34节初识搜索引擎_search结果深入解析search-timeout机制揭秘)
+- [第35节：初识搜索引擎_multi-index&multi-type搜索模式解析以及搜索原理初步图解](#第35节初识搜索引擎_multi-indexmulti-type搜索模式解析以及搜索原理初步图解)
+- [第36节：初识搜索引擎_分页搜索以及deep paging性能问题深度图解揭秘](#第36节初识搜索引擎_分页搜索以及deep-paging性能问题深度图解揭秘)
+- [第37节：初识搜索引擎_快速掌握query string search语法以及_all metadata原理揭秘](#第37节初识搜索引擎_快速掌握query-string-search语法以及_all-metadata原理揭秘)
+- [第38节：初识搜索引擎_用一个例子告诉你mapping到底是什么](#第38节初识搜索引擎_用一个例子告诉你mapping到底是什么)
+- [第39节：初识搜索引擎_精确匹配与全文搜索的对比分析](#第39节初识搜索引擎_精确匹配与全文搜索的对比分析)
+- [第40节：初识搜索引擎_倒排索引核心原理快速揭秘](#第40节初识搜索引擎_倒排索引核心原理快速揭秘)
+- [第41节：初识搜索引擎_分词器的内部组成到底是什么，以及内置分词器的介绍](#第41节初识搜索引擎_分词器的内部组成到底是什么以及内置分词器的介绍)
+- [第42节：初识搜索引擎_query string的分词以及mapping引入案例遗留问题的大揭秘](#第42节初识搜索引擎_query-string的分词以及mapping引入案例遗留问题的大揭秘)
+- [第43节：初识搜索引擎_什么是mapping再次回炉透彻理解](#第43节初识搜索引擎_什么是mapping再次回炉透彻理解)
+- [第44节：初识搜索引擎_mapping的核心数据类型以及dynamic mapping](#第44节初识搜索引擎_mapping的核心数据类型以及dynamic-mapping)
+- [第45节：初识搜索引擎_手动建立和修改mapping以及定制string类型数据是否分词](#第45节初识搜索引擎_手动建立和修改mapping以及定制string类型数据是否分词)
+- [第46节：初识搜索引擎_mapping复杂数据类型以及object类型数据底层结构大揭秘](#第46节初识搜索引擎_mapping复杂数据类型以及object类型数据底层结构大揭秘)
+- [第47节：初识搜索引擎_search api的基础语法介绍](#第47节初识搜索引擎_search-api的基础语法介绍)
+- [第48节：初识搜索引擎_快速上机动手实战Query DSL搜索语法](#第48节初识搜索引擎_快速上机动手实战Query-DSL搜索语法)
+- [第49节：初识搜索引擎_filter与query深入对比解密：相关度，性能](#第49节初识搜索引擎_filter与query深入对比解密相关度性能)
+- [第50节：初识搜索引擎_上机动手实战常用的各种query搜索语法](#第50节初识搜索引擎_上机动手实战常用的各种query搜索语法)
+- [第51节：初识搜索引擎_上机动手实战多搜索条件组合查询](#第51节初识搜索引擎_上机动手实战多搜索条件组合查询)
+- [第52节：初识搜索引擎_上机动手实战如何定位不合法的搜索以及其原因](#第52节初识搜索引擎_上机动手实战如何定位不合法的搜索以及其原因)
+- [第54节：初识搜素引擎_上机动手实战如何定制搜索结果的排序规则](#第54节初识搜素引擎_上机动手实战如何定制搜索结果的排序规则)
+- [第54节：初识搜索引擎_解密如何将一个field索引两次来解决字符串排序问题](#第54节初识搜索引擎_解密如何将一个field索引两次来解决字符串排序问题)
+- [第55节：初识搜索引擎_相关度评分TF&IDF算法独家解密](#第55节初识搜索引擎_相关度评分TF&IDF算法独家解密)
+- [第56节：初识搜索引擎_内核级知识点之doc value初步探秘](#第56节初识搜索引擎_内核级知识点之doc-value初步探秘)
+- [第57节：初识搜索引擎_分布式搜索引擎内核解密之query phase](#第57节初识搜索引擎_分布式搜索引擎内核解密之query-phase)
+- [第58节：初识搜索引擎_分布式搜索引擎内核解密之fetch phase](#第58节初识搜索引擎_分布式搜索引擎内核解密之fetch-phase)
+- [第59节：初识搜索引擎_搜索相关参数梳理以及bouncing results问题解决方案](#第59节初识搜索引擎_搜索相关参数梳理以及bouncing-results问题解决方案)
+- [第60：初识搜索引擎_上机动手实战基于scoll技术滚动搜索大量数据](#第60初识搜索引擎_上机动手实战基于scoll技术滚动搜索大量数据)
+- [第61节：索引管理_快速上机动手实战创建、修改以及删除索引](#第61节索引管理_快速上机动手实战创建修改以及删除索引)
+- [第62节：索引管理_快速上机动手实战修改分词器以及定制自己的分词器](#第62节索引管理_快速上机动手实战修改分词器以及定制自己的分词器)
+- [第63节：索引管理_内核级知识点：深入探秘type底层数据结构](#第63节索引管理_内核级知识点深入探秘type底层数据结构)
+- [第64节：索引管理_mapping root object深入剖析](#第64节索引管理_mapping-root-object深入剖析)
+- [第65节：索引管理_定制化自己的dynamic mapping策略](#第65节索引管理_定制化自己的dynamic-mapping策略)
+- [第66节：索引管理_复杂上机实验：基于scoll+bulk+索引别名实现零停机重建索引](#第66节索引管理_复杂上机实验基于scollbulk索引别名实现零停机重建索引)
+- [第67节：内核原理探秘_倒排索引组成结构以及其索引可变原因揭秘](#第67节内核原理探秘_倒排索引组成结构以及其索引可变原因揭秘)
+- [第68节：内核原理探秘_深度图解剖析document写入原理（buffer，segment，commit）](#第68节内核原理探秘_深度图解剖析document写入原理buffersegmentcommit）)
+- [第69节：内核原理探秘_优化写入流程实现NRT近实时（filesystem cache，refresh）](#第69节内核原理探秘_优化写入流程实现NRT近实时filesystem-cacherefresh）)
+- [第70节：内核原理探秘_继续优化写入流程实现durability可靠存储（translog，flush）](#第70节内核原理探秘_继续优化写入流程实现durability可靠存储translogflush)
+- [第71节：内核原理探秘_最后优化写入流程实现海量磁盘文件合并（segment merge，optimize）](#第71节内核原理探秘_最后优化写入流程实现海量磁盘文件合并segment-mergeoptimize)
+- [第72节：Java API初步使用_员工管理案例：基于Java实现员工信息的增删改查](#第72节Java-API初步使用_员工管理案例基于Java实现员工信息的增删改查)
+- [第73节：Java API初步使用_员工管理案例：基于Java对员工信息进行复杂的搜索操作](#第73节Java-API初步使用_员工管理案例基于Java对员工信息进行复杂的搜索操作)
+- [第74节：Java API初步使用_员工管理案例：基于Java对员工信息进行聚合分析](#第74节Java-API初步使用_员工管理案例基于Java对员工信息进行聚合分析)
+
+
+
+
 
 <!-- /MarkdownTOC -->
 
@@ -331,7 +405,7 @@ Type				表
 Index				库
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第05节：在windows上安装和启动Elasticseach
@@ -373,7 +447,7 @@ version.number: 5.2.0，es版本号
 9、GET _cluster/health
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第06节：快速入门案例实战之电商网站商品管理：集群健康检查，文档CRUD
 
@@ -709,7 +783,7 @@ DELETE /ecommerce/product/1
 }
 ```
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第07节：快速入门案例实战之电商网站商品管理：多种搜索方式
@@ -1074,6 +1148,7 @@ GET /ecommerce/product/_search
 }
 ```
 
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第08节：快速入门案例实战之电商网站商品管理：嵌套聚合，下钻分析，聚合分析
 
@@ -1311,6 +1386,7 @@ GET /ecommerce/product/_search
 }
 ```
 
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第09节：手工画图剖析Elasticsearch的基础分布式架构
 
@@ -1375,7 +1451,7 @@ shard副本，请求路由，集群扩容，shard重分配
 
 （3）响应收集
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第10节：shard&replica机制再次梳理以及单node环境中创建index图解
@@ -1420,6 +1496,8 @@ PUT /test_index
 }
 ```
 
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 ##  第11节：图解2个node环境下replica shard是如何分配的
 
 课程大纲
@@ -1431,6 +1509,9 @@ PUT /test_index
 - （3）读请求：primary/replica
 
 ![](../../pic/es-11-图解2个node环境下replica%20shard是如何分配的.png)
+
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第12节：图解横向扩容过程，如何超出扩容极限，以及如何提升容错性
 
@@ -1449,6 +1530,10 @@ PUT /test_index
 
 ![](../../pic/es-12-容错纠正.png)
 
+
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 ## 第13节：图解Elasticsearch容错机制：master选举，replica容错，数据恢复
 
 课程大纲
@@ -1462,6 +1547,8 @@ PUT /test_index
 
 ![](../../pic/es-13-es容错过程分析.png)
 
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第14节：初步解析document的核心元数据以及图解剖析index创建反例
 
@@ -1509,6 +1596,9 @@ PUT /test_index
 
 ![](../../pic/es-14-index如何创建的反例分析.png)
 
+
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第15节：document id的手动指定与自动生成两种方式解析
 
@@ -1567,6 +1657,9 @@ POST /test_index/test_type
 ![](../../pic/es-15-GUID不冲突解释.png)
 
 
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 ## 第16节：document的_source元数据以及定制返回结果解析
 
 课程大纲
@@ -1621,6 +1714,9 @@ GET /test_index/test_type/1?_source=test_field1,test_field2
 
 [为什么返回的结果不包含test_field1？？？]
 
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 ##  第17节：document的全量替换、强制创建以及图解lazy delete机制
 
 课程大纲
@@ -1653,13 +1749,24 @@ GET /test_index/test_type/1?_source=test_field1,test_field2
 
 ![](../../pic/es-17-document-delete的原理.png)
 
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 ## 第18节：深度图解剖析Elasticsearch并发冲突问题
 
 ![](../../pic/es-18-深度图解剖析Elasticsearch并发冲突问题.png)
 
+
+
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 ## 第19节：深度图解剖析悲观锁与乐观锁两种并发控制方案
 
 ![](../../pic/es-19-深度图解剖析悲观锁与乐观锁两种并发控制方案.png)
+
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 
 ##  第20节：图解Elasticsearch内部如何基于_version进行乐观锁并发控制
 
@@ -1714,6 +1821,9 @@ PUT /test_index/test_type/6
 
 
 [并发修改时，如何保证各个线程的版本号的顺序呢？？？]
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 
 ## 第21节：上机动手实战演练基于_version进行乐观锁并发控制
 
@@ -1847,7 +1957,7 @@ PUT /test_index/test_type/7?version=2
 
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第22节：上机动手实战演练基于external version进行乐观锁并发控制
 
@@ -1998,7 +2108,7 @@ PUT /test_index/test_type/8?version=3&version_type=external
   "created": false
 }
 ```
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ##  第23节：图解partial update实现原理以及动手实战演练
 
@@ -2054,7 +2164,7 @@ POST /test_index/test_type/10/_update
 }
 ```
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第24节：上机动手实战演练基于groovy脚本进行partial update
@@ -2174,7 +2284,7 @@ POST /test_index/test_type/11/_update
 }
 ```
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第25节：图解partial update乐观锁并发控制原理以及相关操作讲解
@@ -2188,6 +2298,8 @@ POST /test_index/test_type/11/_update
 post /index/type/id/_update?retry_on_conflict=5&version=6
 
 ![](../../pic/es-25-partial-update内置乐观锁并发控制.png)
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ##  第26节：上机动手实战演练mget批量查询api
@@ -2286,7 +2398,7 @@ GET /test_index/test_type/_mget
 可以说mget是很重要的，一般来说，在进行查询的时候，如果一次性要查询多条数据的话，那么一定要用batch批量操作的api
 尽可能减少网络开销次数，可能可以将性能提升数倍，甚至数十倍，非常非常之重要
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第27节：分布式文档系统_上机动手实战演练bulk批量增删改
 
@@ -2477,7 +2589,7 @@ bulk request会加载到内存里，如果太大的话，性能反而会下降�
 一般从1000~5000条数据开始，尝试逐渐增加。另外，如果看大小的话，最好是在5~15MB之间。
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第28节：分布式文档系统_阶段性总结以及什么是distributed document store
 
@@ -2516,7 +2628,7 @@ es可以作为一个分布式的文档存储系统，所以说，我们的应用
 就是一些简单的CRUD操作，而且数据量可能还比较大。这个时候选用ES这种NoSQL型的数据存储，
 比传统的复杂的功能务必强大的支持SQL的关系型数据库，更加合适一些。无论是性能，还是吞吐量，可能都会更好。
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第29节：分布式文档系统_深度图解剖析document数据路由原理
 
@@ -2559,7 +2671,7 @@ routing = _id，假设_id=1
 
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第30节：分布式文档系统_document增删改内部原理图解揭秘
 
@@ -2571,6 +2683,8 @@ routing = _id，假设_id=1
 - （4）coordinating node，如果发现primary node和所有replica node都搞定之后，就返回响应结果给客户端
 
 ![](../../pic/es-30-es增删改内部原理.png)
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第31节：分布式文档系统_图解写一致性原理以及quorum机制深入剖析
 
@@ -2611,7 +2725,7 @@ es提供了一种特殊的处理场景，就是说当number_of_replicas>1时才�
 我们其实可以在写操作的时候，加一个timeout参数，比如说put /index/type/id?timeout=30，这个就是说自己去设定quorum不齐全的时候，es的timeout时长，可以缩短，也可以增长
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第32节：分布式文档系统_document查询内部原理图解揭秘
@@ -2625,6 +2739,10 @@ es提供了一种特殊的处理场景，就是说当number_of_replicas>1时才�
 - 5、特殊情况：document如果还在建立索引过程中，可能只有primary shard有，任何一个replica shard都没有，此时可能会导致无法读取到document，但是document完成索引建立之后，primary shard和replica shard就都有了
 
 ![](../../pic/es-32-读请求内部原理.png)
+
+
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第33节：分布式文档系统_bulk api的奇特json格式与底层性能优化关系大揭秘
 
@@ -2685,7 +2803,7 @@ bulk api奇特的json格式
 
 > 5、最大的优势在于，不需要将json数组解析为一个JSONArray对象，形成一份大数据的拷贝，浪费内存空间，尽可能地保证性能
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第34节：初识搜索引擎_search结果深入解析（search timeout机制揭秘）
@@ -2744,6 +2862,8 @@ GET /_search?timeout=10m
 
 ![](../../pic/es-34-timeout机制详解.png)
 
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 
 ## 第35节：初识搜索引擎_multi-index&multi-type搜索模式解析以及搜索原理初步图解
 
@@ -2775,7 +2895,7 @@ GET /_search?timeout=10m
 
 ![](../../pic/es-35-初步图解搜索原理.png)
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第36节：初识搜索引擎_分页搜索以及deep paging性能问题深度图解揭秘
 
@@ -2866,7 +2986,7 @@ deep paging性能问题，以及原理深度图解揭秘，很高级的知识点
 ![](../../pic/es-36-deep-paging图解.png)
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第37节：初识搜索引擎_快速掌握query string search语法以及_all metadata原理揭秘
@@ -2907,6 +3027,9 @@ es中的_all元数据，在建立索引的时候，我们插入一条document，
 "jack 26 jack@sina.com guangzhou"，作为这一条document的_all field的值，同时进行分词后建立对应的倒排索引
 
 生产环境不使用
+
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第38节：初识搜索引擎_用一个例子告诉你mapping到底是什么
 
@@ -3002,6 +3125,8 @@ GET /website/_mapping/article
 搜索结果为什么不一致，因为es自动建立mapping的时候，设置了不同的field不同的data type。不同的data type的分词、搜索等行为是不一样的。
 所以出现了_all field和post_date field的搜索表现完全不一样。
 
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 
 ## 第39节：初识搜索引擎_精确匹配与全文搜索的对比分析
 
@@ -3030,6 +3155,9 @@ Tom，搜索tom，也可以将Tom搜索出来
 like，搜索love，同义词，也可以将like搜索出来
 
 就不是说单纯的只是匹配完整的一个值，而是可以对值进行拆分词语后（分词）进行匹配，也可以通过缩写、时态、大小写、同义词等进行匹配
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 
 ## 第40节：初识搜索引擎_倒排索引核心原理快速揭秘
 
@@ -3137,7 +3265,7 @@ doc1和doc2都会搜索出来
 - doc1：I really liked my small dogs, and I think my mom also liked them.
 - doc2：He never liked any dogs, so I hope that my mom will not expect me to liked him.
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第41节：初识搜索引擎_分词器的内部组成到底是什么，以及内置分词器的介绍
@@ -3172,7 +3300,7 @@ whitespace analyzer：Set, the, shape, to, semi-transparent, by, calling, set_tr
 
 language analyzer（特定的语言的分词器，比如说，english，英语分词器）：set, shape, semi, transpar, call, set_tran, 5
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第42节：初识搜索引擎_query string的分词以及mapping引入案例遗留问题的大揭秘
 
@@ -3254,7 +3382,7 @@ GET /_analyze
   "text": "Text to analyze"
 }
 ```
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第43节：初识搜索引擎_什么是mapping再次回炉透彻理解
 
@@ -3269,6 +3397,7 @@ GET /_analyze
 
 mapping，就是index的type的元数据，每个type都有一个自己的mapping，决定了数据类型，建立倒排索引的行为，还有进行搜索的行为
 
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第44节：初识搜索引擎_mapping的核心数据类型以及dynamic mapping
 
@@ -3298,7 +3427,7 @@ true or false	-->	boolean
 
 GET /index/_mapping/type
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第45节：初识搜索引擎_手动建立和修改mapping以及定制string类型数据是否分词
 
@@ -3415,7 +3544,7 @@ GET website/_analyze
 }
 ```
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第46节：初识搜索引擎_mapping复杂数据类型以及object类型数据底层结构大揭秘
 
@@ -3538,7 +3667,7 @@ address：object类型
     "authors.name":   [jack, white, tom, jones, kitty, smith]
 }
 ```
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ##  第47节：初识搜索引擎_search api的基础语法介绍
 
@@ -3575,6 +3704,8 @@ POST /_search
 碰巧，很多浏览器，或者是服务器，也都支持GET+request body模式
 
 如果遇到不支持的场景，也可以用POST /_search
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第48节：初识搜索引擎_快速上机动手实战Query DSL搜索语法
 
@@ -3731,7 +3862,7 @@ GET /test_index/_search
 
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第49节：初识搜索引擎_filter与query深入对比解密：相关度，性能
@@ -3809,7 +3940,7 @@ filter，不需要计算相关度分数，不需要按照相关度分数进行�
 query，相反，要计算相关度分数，按照分数进行排序，而且无法cache结果
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ##  第50节：初识搜索引擎_上机动手实战常用的各种query搜索语法
@@ -3890,7 +4021,7 @@ GET /_search
 > 7、exist query（2.x中的查询，现在已经不提供了）
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第51节：初识搜索引擎_上机动手实战多搜索条件组合查询
@@ -3986,7 +4117,7 @@ GET /company/employee/_search
   }
 }
 ```
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第52节：初识搜索引擎_上机动手实战如何定位不合法的搜索以及其原因
 
@@ -4038,7 +4169,7 @@ GET /test_index/test_type/_validate/query?explain
 一般用在那种特别复杂庞大的搜索下，比如你一下子写了上百行的搜索，这个时候可以先用validate api去验证一下，搜索是否合法
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第54节：初识搜素引擎_上机动手实战如何定制搜索结果的排序规则
@@ -4108,7 +4239,7 @@ GET /company/employee/_search
   ]
 }
 ```
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第54节：初识搜索引擎_解密如何将一个field索引两次来解决字符串排序问题
 
@@ -4228,7 +4359,7 @@ GET /website/article/_search
   ]
 }
 ```
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第55节：初识搜索引擎_相关度评分TF&IDF算法独家解密
 
@@ -4808,7 +4939,7 @@ GET /test_index/test_type/6/_explain
   }
 }
 ```
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第56节：初识搜索引擎_内核级知识点之doc value初步探秘
 
@@ -4864,7 +4995,7 @@ doc2		tom		30
 
 
 
-	
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 
@@ -4887,6 +5018,8 @@ doc2		tom		30
 ![](../../pic/es-57-query-phase.png)
 
 
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 ## 第58节：初识搜索引擎_分布式搜索引擎内核解密之fetch phase
 
 课程大纲
@@ -4902,7 +5035,7 @@ doc2		tom		30
 ![](../../pic/es-58-fetch-phase.png)
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ##  第59节：初识搜索引擎_搜索相关参数梳理以及bouncing results问题解决方案
@@ -4935,7 +5068,7 @@ default：query_then_fetch
 
 dfs_query_then_fetch，可以提升revelance sort精准度
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第60：初识搜索引擎_上机动手实战基于scoll技术滚动搜索大量数据
 
@@ -5030,7 +5163,7 @@ GET /_search/scroll
 
 scoll，看起来挺像分页的，但是其实使用场景不一样。分页主要是用来一页一页搜索，给用户看的；scoll主要是用来一批一批检索数据，让系统进行处理的
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第61节：索引管理_快速上机动手实战创建、修改以及删除索引
 
@@ -5102,7 +5235,7 @@ action.destructive_requires_name: true
 
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ##  第62节：索引管理_快速上机动手实战修改分词器以及定制自己的分词器
@@ -5201,8 +5334,7 @@ PUT /my_index/_mapping/my_type
 }
 ```
 
-
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第63节：索引管理_内核级知识点：深入探秘type底层数据结构
 
@@ -5308,6 +5440,7 @@ lucene是没有type的概念的，在document中，实际上将type作为一个d
 最佳实践，将类似结构的type放在一个index下，这些type应该有多个field是相同的
 假如说，你将两个type的field完全不同，放在一个index下，那么就每条数据都至少有一半的field在底层的lucene中是空值，会有严重的性能问题
 
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第64节：索引管理_mapping root object深入剖析
 
@@ -5392,7 +5525,7 @@ PUT /my_index/_mapping/my_type4
 
 _index，_type，_id
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 
@@ -5572,7 +5705,7 @@ PUT /my_index
 }
 ```
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第66节：索引管理_复杂上机实验：基于scoll+bulk+索引别名实现零停机重建索引
 
@@ -5772,7 +5905,7 @@ POST /_aliases
 }
 ```
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第67节：内核原理探秘_倒排索引组成结构以及其索引可变原因揭秘
@@ -5807,7 +5940,7 @@ you				*
 
 倒排索引不可变的坏处：每次都要重新构建整个索引
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第68节：内核原理探秘_深度图解剖析document写入原理（buffer，segment，commit）
 
@@ -5824,6 +5957,8 @@ you				*
 搜索的时候，会依次查询所有的segment，从旧的到新的，比如被修改过的document，在旧的segment中，会标记为deleted，在新的segment中会有其新的数据
 
 ![](../../pic/es-68-document增删改内核级原理.png)
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第69节：内核原理探秘_优化写入流程实现NRT近实时（filesystem cache，refresh）
 
@@ -5859,6 +5994,8 @@ PUT /my_index
 commit。。。稍后就会讲。。。
 
 ![](../../pic/es-69-NRT写入优化.png)
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第70节：内核原理探秘_继续优化写入流程实现durability可靠存储（translog，flush）
 
@@ -5899,7 +6036,7 @@ PUT /my_index/_settings
 
 ![](../../pic/es-70-终极版本的es数据写入流程.png)
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ##  第71节：内核原理探秘_最后优化写入流程实现海量磁盘文件合并（segment merge，optimize）
 
@@ -5920,6 +6057,9 @@ PUT /my_index/_settings
 POST /my_index/_optimize?max_num_segments=1，尽量不要手动执行，让它自动默认执行就可以了
 
 ![](../../pic/es-71-segment-merge.png)
+
+
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 ## 第72节：Java API初步使用_员工管理案例：基于Java实现员工信息的增删改查
 
@@ -6027,6 +6167,8 @@ client.prepareUpdate("index", "type", "1")
 DeleteResponse response = client.prepareDelete("index", "type", "1").get();
 
 
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
+
 ## 第73节：Java API初步使用_员工管理案例：基于Java对员工信息进行复杂的搜索操作
 
 课程大纲
@@ -6081,7 +6223,7 @@ GET /company/employee/_search
 
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 ## 第74节：Java API初步使用_员工管理案例：基于Java对员工信息进行聚合分析
@@ -6216,7 +6358,7 @@ Map<String, Aggregation> aggrMap = searchResponse.getAggregations().asMap();
 
 
 
-
+- [回到目录](#Elasticsearch顶尖高手系列课程-核心知识篇)
 
 
 
