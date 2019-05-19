@@ -1,5 +1,7 @@
 # Elasticsearch顶尖高手系列-高手进阶篇
 
+<!-- MarkdownTOC -->
+
 - [01_结构化搜索_IT技术论坛案例背景介绍](#01_结构化搜索_IT技术论坛案例背景介绍)
 - [02_结构化搜索_在案例中实战使用term filter来搜索数据](#02_结构化搜索_在案例中实战使用term-filter来搜索数据)
 - [03_结构化搜索_filter执行原理深度剖析（bitset机制与caching机制）](#03_结构化搜索_filter执行原理深度剖析bitset机制与caching机制)
@@ -93,6 +95,9 @@
 - [91_熟练掌握ES Java API_如何自己尝试API以掌握所有搜索和聚合的语法](#91_熟练掌握ES Java API_如何自己尝试API以掌握所有搜索和聚合的语法)
 - [92_快速入门篇以及高手进阶篇课程总结，以及后续阶段课程介绍](#92_快速入门篇以及高手进阶篇课程总结，以及后续阶段课程介绍)
 
+<!-- /MarkdownTOC -->
+
+
 
 ------------------------------------------------------------------------------------
 
@@ -124,233 +129,371 @@ IT技术论坛，发各种IT技术的帖子：一种是自己研究了一个技�
 ## 02_结构化搜索_在案例中实战使用term filter来搜索数据
 
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 03_结构化搜索_filter执行原理深度剖析（bitset机制与caching机制）
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 04_结构化搜索_在案例中实战基于bool组合多个filter条件来搜索数据
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 05_结构化搜索_在案例中实战使用terms搜索多个值以及多值搜索结果优化
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 06_结构化搜索_在案例中实战基于range filter来进行范围过滤
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 07_深度探秘搜索技术_在案例中体验如何手动控制全文检索结果的精准度
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 08_深度探秘搜索技术_基于term+bool实现的multiword搜索底层原理剖析
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 09_深度探秘搜索技术_基于boost的细粒度搜索条件权重控制
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 10_深度探秘搜索技术_多shard场景下relevance score不准确问题大揭秘
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 11_深度探秘搜索技术_案例实战基于dis_max实现best fields策略进行多字段搜索
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 12_深度探秘搜索技术_案例实战基于tie_breaker参数优化dis_max搜索效果
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 13_深度探秘搜索技术_案例实战基于multi_match语法实现dis_max+tie_breaker
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 14_深度探秘搜索技术_基于multi_match+most fiels策略进行multi-field搜索
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
+
 ## 15_深度探秘搜索技术_使用most_fields策略进行cross-fields search弊端大揭秘
+
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 
 ## 16_深度探秘搜索技术_使用copy_to定制组合field解决cross-fields搜索弊端
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 17_深度探秘搜索技术_使用原生cross-fiels技术解决搜索弊端
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 18_深度探秘搜索技术_在案例实战中掌握phrase matching搜索技术
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 19_深度探秘搜索技术_基于slop参数实现近似匹配以及原理剖析和相关实验
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 20_深度探秘搜索技术_混合使用match和近似匹配实现召回率与精准度的平衡
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 21_深度探秘搜索技术_使用rescoring机制优化近似匹配搜索的性能
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 22_深度探秘搜索技术_实战前缀搜索、通配符搜索、正则搜索等技术
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 23_深度探秘搜索技术_实战match_phrase_prefix实现search-time搜索推荐
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 24_深度探秘搜索技术_实战通过ngram分词机制实现index-time搜索推荐
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 25_深度探秘搜索技术_深入揭秘TF&IDF算法以及向量空间模型算法
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 26_深度探秘搜索技术_深入揭秘lucene的相关度分数算法
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 27_深度探秘搜索技术_实战掌握四种常见的相关度分数优化方法
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 28_深度探秘搜索技术_实战用function_score自定义相关度分数算法
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 29_深度探秘搜索技术_实战掌握误拼写时的fuzzy模糊搜索技术
   
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 30_彻底掌握IK中文分词_上机动手实战IK中文分词器的安装和使用
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 31_彻底掌握IK中文分词_IK分词器配置文件讲解以及自定义词库实战
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 32_彻底掌握IK中文分词_修改IK分词器源码来基于mysql热更新词库
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 33_深入聚合数据分析_bucket与metric两个核心概念的讲解
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 34_深入聚合数据分析_家电卖场案例以及统计哪种颜色电视销量最高
 
+
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 35_深入聚合数据分析_实战bucket+metric：统计每种颜色电视平均价格
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 36_深入聚合数据分析_bucket嵌套实现颜色+品牌的多层下钻分析
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 37_深入聚合数据分析_掌握更多metrics：统计每种颜色电视最大最小价格
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 38_深入聚合数据分析_实战hitogram按价格区间统计电视销量和销售额
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 39_深入聚合数据分析_实战date hitogram之统计每月电视销量
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 40_深入聚合数据分析_下钻分析之统计每季度每个品牌的销售额
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 41_深入聚合数据分析_搜索+聚合：统计指定品牌下每个颜色的销量
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 42_深入聚合数据分析_global bucket：单个品牌与所有品牌销量对比
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 43_深入聚合数据分析_过滤+聚合：统计价格大于1200的电视平均价格
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 44_深入聚合数据分析_bucket filter：统计牌品最近一个月的平均价格
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 45_深入聚合数据分析_排序：按每种颜色的平均销售额降序排序
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 46_深入聚合数据分析_颜色+品牌下钻分析时按最深层metric进行排序
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 47_深入聚合数据分析_易并行聚合算法，三角选择原则，近似聚合算法
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 48_深入聚合数据分析_cardinality去重算法以及每月销售品牌数量统计
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 49_深入聚合数据分析_cardinality算法之优化内存开销以及HLL算法
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 50_深入聚合数据分析_percentiles百分比算法以及网站访问时延统计
 
+
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 51_深入聚合数据分析_percentiles rank以及网站访问时延SLA统计
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 52_深入聚合数据分析_基于doc value正排索引的聚合内部原理
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 53_深入聚合数据分析_doc value机制内核级原理深入探秘
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 54_深入聚合数据分析_string field聚合实验以及fielddata原理初探
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 55_深入聚合数据分析_fielddata内存控制以及circuit breaker断路器
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 56_深入聚合数据分析_fielddata filter的细粒度内存加载控制
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 57_深入聚合数据分析_fielddata预加载机制以及序号标记预加载
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 58_深入聚合数据分析_海量bucket优化机制：从深度优先到广度优先
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 59_数据建模实战_关系型与document类型数据模型对比
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 60_数据建模实战_通过应用层join实现用户与博客的关联
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 61_数据建模实战_通过数据冗余实现用户与博客的关联
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 62_数据建模实战_对每个用户发表的博客进行分组
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 63_数据建模实战_对文件系统进行数据建模以及文件搜索实战
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 64_数据建模实战_基于全局锁实现悲观锁并发控制
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 65_数据建模实战_基于document锁实现悲观锁并发控制
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 66_数据建模实战_基于共享锁和排他锁实现悲观锁并发控制
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
+
 ## 67_数据建模实战_基于nested object实现博客与评论嵌套关系
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 68_数据建模实战_对嵌套的博客评论数据进行聚合分析
+
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 69_数据建模实战_研发中心管理案例以及父子关系数据建模
 
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 70_数据建模实战_根据员工信息和研发中心互相搜索父子数据
+ 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
  
 ## 71_数据建模实战_对每个国家的员工兴趣爱好进行聚合统计
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 72_数据建模实战_祖孙三层数据关系建模以及搜索实战
 
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 73_elasticsearch高手进阶_基于term vector深入探查数据的情况
 
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 74_elasticsearch高手进阶_深入剖析搜索结果的highlight高亮显示
+
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 75_elasticsearch高手进阶_使用search template将搜索模板化
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 76_elasticsearch高手进阶_基于completion suggest实现搜索提示
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 77_elasticsearch高手进阶_使用动态映射模板定制自己的映射策略
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 78_elasticsearch高手进阶_学习使用geo point地理位置数据类型
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 79_elasticsearch高手进阶_酒店o2o搜索案例以及搜索指定区域内的酒店
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 80_elasticsearch高手进阶_实战搜索距离当前位置一定范围内的酒店
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 81_elasticsearch高手进阶_统计当前位置每个距离范围内有多少家酒店
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 82_熟练掌握ES Java API_client集群自动探查以及汽车零售店案例背景
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 83_熟练掌握ES Java API_基于upsert实现汽车最新价格的调整
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 84_熟练掌握ES Java API_基于mget实现多辆汽车的配置与价格对比
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 85_熟练掌握ES Java API_基于bulk实现多4S店销售数据批量上传
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 86_熟练掌握ES Java API_基于scroll实现月度销售数据批量下载
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 87_熟练掌握ES Java API_基于search template实现按品牌分页查询模板
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 88_熟练掌握ES Java API_对汽车品牌进行全文检索、精准查询和前缀搜索
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 89_熟练掌握ES Java API_对汽车品牌进行多种条件的组合搜索
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 90_熟练掌握ES Java API_基于地理位置对周围汽车4S店进行搜索
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
+
 ## 91_熟练掌握ES Java API_如何自己尝试API以掌握所有搜索和聚合的语法
 
+- [回到目录](#Elasticsearch顶尖高手系列-高手进阶篇)
 
 ## 92_快速入门篇以及高手进阶篇课程总结，以及后续阶段课程介绍
 
