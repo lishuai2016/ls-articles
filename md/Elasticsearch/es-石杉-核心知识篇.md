@@ -3,9 +3,9 @@
 
 <!-- MarkdownTOC -->
 
-- [第01节：课程介绍](#第01节：课程介绍)
-- [第02节：用大白话告诉你什么是Elasticsearch](#第02节：用大白话告诉你什么是Elasticsearch)
-- [第03节：Elasticsearch的功能、适用场景以及特点介绍](#第03节：Elasticsearch的功能、适用场景以及特点介绍)
+- [第01节：课程介绍](#第01节课程介绍)
+- [第02节：用大白话告诉你什么是Elasticsearch](#第02节用大白话告诉你什么是Elasticsearch)
+- [第03节：Elasticsearch的功能、适用场景以及特点介绍](#第03节Elasticsearch的功能、适用场景以及特点介绍)
 - []()
 
 <!-- /MarkdownTOC -->
