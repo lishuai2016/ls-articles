@@ -1,109 +1,134 @@
-```java
-优解：1和2差不多，一个朝前一个朝后
+# 82. 删除排序链表中的重复元素 II
+
+- [remove-duplicates-from-sorted-list-ii](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)
+
+## 描述
+
+给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。
+
+示例 1:
+
+输入: 1->2->3->3->4->4->5
+输出: 1->2->5
+
+示例 2:
+
+输入: 1->1->1->2->3
+输出: 2->3
+
+## 思路
+
+- 思路1
+使用两个指针和一个是否出现重复数字标记flag变量
+
+- 思路2
+原理是首先判断连着的节点是否有重复值，是的话，使用中间变量保存重复节点的val，然后把包含该value节点的值都删除掉
+
+
+
+## 题解
+
+
+
+### 思路1
+
+```
 /**
- *
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
  */
-package list;
-
-/**
- * @author lishuai
- * @data 2016-12-20 下午2:15:29
- */
-
-public class RemoveDuplicatesfromSortedListII {
-
-    /**
-     * @author lishuai
-     * @data 2016-12-20 下午2:15:29
-Given a sorted linked list, delete all nodes that have duplicate numbers,
-leaving only distinct numbers from the original list.
-
-For example,
-Given 1->2->3->3->4->4->5, return 1->2->5.
-Given 1->1->1->2->3, return 2->3.
-     */
-
-    public static void main(String[] args) {
-        ListNode l1 = new ListNode(1);
-        ListNode l2 = new ListNode(1);
-        ListNode l3 = new ListNode(2);
-        ListNode l4 = new ListNode(3);
-        ListNode l5 = new ListNode(4);
-        ListNode l6 = new ListNode(4);
-        ListNode l7 = new ListNode(5);
-        l1.next = l2;
-//        l2.next = l3;
-//        l3.next = l4;
-//        l4.next = l5;
-//        l5.next = l6;
-//        l6.next = l7;
-        deleteDuplicates11(l1);
-    }
-    //2九章(借助一个变量直接移动，朝后找第一个不等于的数字)
-    public static ListNode deleteDuplicates(ListNode head) {
-        if(head == null || head.next == null)
-            return head;
-
-        ListNode dummy = new ListNode(0);
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode dummy = new ListNode(-1);
         dummy.next = head;
-        head = dummy;
-
-        while (head.next != null && head.next.next != null) {
-            if (head.next.val == head.next.next.val) {
-                int val = head.next.val;
-                while (head.next != null && head.next.val == val) {
-                    head.next = head.next.next;
-                }           
+        ListNode cur = dummy;
+        while (cur != null && cur.next != null) {
+            boolean flag = false;
+            ListNode node = cur.next;//基准节点
+            
+            ListNode next = node.next; //第一个不同的节点
+            while (next != null && node.val == next.val) {
+                next = next.next;
+                flag = true;
+            }
+            if (flag) {
+                cur.next = next; //需要删除操作
             } else {
-                head = head.next;
+                cur = cur.next; //不进行删除的时候才进行游标指针的后移，否则会保留一个重复值
             }
-        }
-
-        return dummy.next;
-    }
-
-    //Given 1->2->3->3->4->4->5, return 1->2->5.
-    //Given 1->1->1->2->3, return 2->3.
-    //1
-    public static ListNode deleteDuplicates1(ListNode head) {
-        if(head == null) return null;
-        ListNode FakeHead = new ListNode(0);
-        FakeHead.next = head;
-        ListNode pre = FakeHead;
-        ListNode cur = head;
-        while(cur != null){
-            while(cur.next != null && cur.val == cur.next.val) {
-                cur = cur.next;
-            }
-            if(pre.next == cur){
-                pre = pre.next;
-            } else {
-                pre.next = cur.next;
-            }
-            cur = cur.next;
-        }
-        return FakeHead.next;
-    }
-
-
-
-    //1的副本
-    public static ListNode deleteDuplicates11(ListNode head) {
-        if (head == null || head.next == null) return head;
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode pre = dummy;
-        ListNode cur = pre.next;
-        while (cur != null) {
-            //内循环的作用把指针移动到相同元素的最后一个
-            while (cur.next != null && cur.val == cur.next.val) cur = cur.next;
-            if (pre.next == cur) pre = pre.next;
-            else pre.next = cur.next;
-            cur = cur.next;
         }
         return dummy.next;
     }
 }
 
+```
+
+对上面进行的优化
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode cur = head;
+        while (cur != null) {
+            while (cur.next != null && cur.val == cur.next.val) {//找第一个不重复的值
+                cur = cur.next;
+            }
+            if (pre.next == cur) {//没有重复值，前指针后移一步
+                pre = pre.next;
+            } else {
+                pre.next = cur.next;//有重复值，进行删除
+            }
+            cur = cur.next;
+        }
+        return dummy.next;
+    }
+}
+```
+
+
+
+### 思路2
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode pre = dummy;
+        head = dummy;
+        while (head.next != null && head.next.next != null) {
+            if (head.next.val == head.next.next.val) {
+                int val = head.next.val;
+                while (head.next != null && head.next.val == val) {
+                    head.next = head.next.next;
+                }
+            } else {
+                head = head.next;
+            }
+        }
+        return dummy.next;
+    }
+}
 
 ```
