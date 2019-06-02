@@ -1,9 +1,5 @@
----
-title: 深入理解mybatis原理
-categories: 
-- Mybatis
-tags:
----
+深入理解mybatis原理
 
+> 参考
 
-[参考](https://blog.csdn.net/u010349169/column/info/mybatis-principle)
+[深入理解mybatis原理](https://blog.csdn.net/u010349169/column/info/mybatis-principle)

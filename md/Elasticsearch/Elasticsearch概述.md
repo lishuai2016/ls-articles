@@ -1,5 +1,13 @@
 # elasticsearch概述
 
+- [Elasticsearch学习笔记](https://juejin.im/post/5b9292b75188255c6b64eee5)
+- [Elasticsearch 6.x 倒排索引与分词](https://juejin.im/post/5b799cf551882542f676daba)
+- [[转]23个最有用的Elasticsearch检索技巧](https://juejin.im/post/5b7fe4a46fb9a019d92469a9)
+
+
+
+
+
 <!-- TOC -->
 
 - [elasticsearch概述](#elasticsearch概述)

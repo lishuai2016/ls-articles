@@ -1,9 +1,4 @@
----
-title: Mybatis数据源与连接池
-categories: 
-- Mybatis
-tags:
----
+Mybatis数据源与连接池
 
 
 [参考](https://blog.csdn.net/luanlouis/article/details/37671851)
@@ -18,7 +13,7 @@ tags:
 
 
 mybatis3.4.6源码的包结构
-![](/images/mybatis源码0.png)
+![](../..//pic/mybatis源码0.png)
 
 # 概述  PooledConnection解析
 [动态代理模式获得数据库连接池中的数据库connection]
@@ -29,7 +24,7 @@ class PooledConnection implements InvocationHandler {
     private final PooledDataSource dataSource;
     private final Connection realConnection;//真正数据库连接
     private final Connection proxyConnection;//代理的数据库连接
-    //...
+    /../.
     //必须的两个参数，connection真正数据库连接；dataSource，用于释放连接的时候把它放回连接池
     public PooledConnection(Connection connection, PooledDataSource dataSource) { 
         this.hashCode = connection.hashCode();
@@ -41,7 +36,7 @@ class PooledConnection implements InvocationHandler {
         [ this.proxyConnection = (Connection)Proxy.newProxyInstance(Connection.class.getClassLoader(), IFACES, this);]  
         我们连接数据库使用的是这个代理connection
     }
-//...
+/../.
 
 public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         String methodName = method.getName();
@@ -70,8 +65,8 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
 
 # MyBatis数据源DataSource分类
 MyBatis数据源实现是在以下三个包中：
-![](/images/mybatis源码-数据源-1.png)
-![](/images/mybatis源码-数据源-2.png)
+![](../..//pic/mybatis源码-数据源-1.png)
+![](../..//pic/mybatis源码-数据源-2.png)
 
 
 MyBatis把数据源DataSource分为三种：
@@ -81,13 +76,13 @@ JNDI       使用JNDI实现的数据源
 
 
 相应地，MyBatis内部分别定义了实现了java.sql.DataSource接口的UnpooledDataSource，PooledDataSource类来表示UNPOOLED、POOLED类型的数据源。 如下图所示：
-![](/images/mybatis源码-数据源-3.png)
+![](../..//pic/mybatis源码-数据源-3.png)
 对于JNDI类型的数据源DataSource，则是通过JNDI上下文中取值。
 
 # 数据源DataSource的创建过程
 [MyBatis数据源DataSource对象的创建发生在MyBatis初始化的过程中]。下面让我们一步步地了解MyBatis是如何创建数据源DataSource的。
 在mybatis的XML配置文件中，使用<dataSource>元素来配置数据源：
-![](/images/mybatis源码-数据源-3-1.png)
+![](../..//pic/mybatis源码-数据源-3-1.png)
 
 ## MyBatis在初始化时，解析此文件，根据<dataSource>的type属性来创建相应类型的的数据源DataSource，即：
 type=”POOLED”  ：MyBatis会创建PooledDataSource实例
@@ -107,7 +102,7 @@ POOLED        PooledDataSourceFactory
 UNPOOLED     UnpooledDataSourceFactory
 JNDI          JndiDataSourceFactory
 其类图如下所示：
-![](/images/mybatis源码-数据源-4.png)
+![](../..//pic/mybatis源码-数据源-4.png)
 
 ## MyBatis创建了DataSource实例后，会将其放到Configuration对象内的Environment对象中， 供以后使用。
 
@@ -195,7 +190,7 @@ UnPooledDataSource的getConnection()方法实现如下：
 4.返回Connection对象。
 
 上述的序列图如下所示：
-![](/images/mybatis源码-数据源-5.png)
+![](../..//pic/mybatis源码-数据源-5.png)
 
 总结：从上述的代码中可以看到，我们每调用一次getConnection()方法，都会通过DriverManager.getConnection()返回新的java.sql.Connection实例。
 
@@ -240,7 +235,7 @@ UnPooledDataSource的getConnection()方法实现如下：
 ```
 
 上述程序在我笔记本上的执行结果为：
-![](/images/mybatis源码-数据源-6.png)
+![](../..//pic/mybatis源码-数据源-6.png)
 
 从此结果可以清楚地看出，创建一个Connection对象，用了250 毫秒；而执行SQL的时间用了170毫秒。
 创建一个Connection对象用了250毫秒！这个时间对计算机来说可以说是一个非常奢侈的！
@@ -273,7 +268,7 @@ MyBatis会将其包裹成PooledConnection对象放到此集合中。
 会优先从idleConnections集合中取PooledConnection对象,如果没有，则看此集合是否已满，如果未满，PooledDataSource会创建出一个PooledConnection，
 添加到此集合中，并返回。
 PoolState连接池的大致结构如下所示：
-![](/images/mybatis源码-数据源-7.png)
+![](../..//pic/mybatis源码-数据源-7.png)
 
 ## 获取java.sql.Connection对象的过程
 下面让我们看一下PooledDataSource 的getConnection()方法获取Connection对象的实现：
@@ -440,7 +435,7 @@ public Connection getConnection() throws SQLException {
     }
 ```
 对应的处理流程图如下所示：
-![](/images/mybatis源码-数据源-8.png)
+![](../..//pic/mybatis源码-数据源-8.png)
 
 如上所示,对于PooledDataSource的getConnection()方法内，先是调用类PooledDataSource的popConnection()方法返回了一个PooledConnection对象，
 然后调用了PooledConnection的getProxyConnection()来返回Connection对象。
@@ -629,7 +624,7 @@ PooledConnection对象内持有一个真正的数据库连接java.sql.Connection
 ```java
  class PooledConnection implements InvocationHandler {
       
-      //......
+      /../....
       //所创建它的datasource引用
       private PooledDataSource dataSource;
       //真正的Connection对象
@@ -637,7 +632,7 @@ PooledConnection对象内持有一个真正的数据库连接java.sql.Connection
       //代理自己的代理Connection
       private Connection proxyConnection;
       
-      //......
+      /../....
     }
 
 ```

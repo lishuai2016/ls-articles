@@ -11,6 +11,9 @@ class文件中的描述符：[八个基本类型]
 - Z boolean
 
 
+![](../../pic/2019-06-01-11-39-38.png)
+
+
 对象引用 L  比如Ljava.lang.String表示字符串String引用
 [ 数组类型   比如字符串数组 [java.lang.String
 

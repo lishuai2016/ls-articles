@@ -1,9 +1,4 @@
----
-title: MyBatis的架构设计以及实例分析
-categories: 
-- Mybatis
-tags:
----
+MyBatis的架构设计以及实例分析
 
 
 
@@ -55,7 +50,7 @@ Configuration        MyBatis所有的配置信息都维持在Configuratio
 数据处理层
 框架支撑层
 引导层
-![](/images/mybatis源码1-1.png)
+![](../../pic/mybatis源码1-1.png)
         
 
 ## 接口层---和数据库交互的方式
@@ -66,7 +61,7 @@ b. 使用Mapper接口
 ### 使用传统的MyBatis提供的API
 这是传统的传递Statement Id 和查询参数给 SqlSession 对象，使用 SqlSession对象完成和数据库的交互；
 MyBatis 提供了非常方便和简单的API，供用户实现对数据库的增删改查数据操作，以及对数据库连接信息和MyBatis 自身配置信息的维护操作。
-![](/images/mybatis源码1-2.png)
+![](../../pic/mybatis源码1-2.png)
                    
 上述使用MyBatis 的方法，是创建一个和数据库打交道的SqlSession对象，然后根据Statement Id 和参数来操作数据库，这种方式固然很简单和实用，
 但是它不符合面向对象语言的概念和面向接口编程的编程习惯。由于面向接口的编程是面向对象的大趋势，MyBatis 为了适应这一趋势，
@@ -76,7 +71,7 @@ MyBatis 提供了非常方便和简单的API，供用户实现对数据库的增
 MyBatis 将配置文件中的每一个<mapper> 节点抽象为一个 Mapper 接口，而这个接口中声明的方法和跟<mapper> 节点中的<select|update|delete|insert> 
 节点项对应，即<select|update|delete|insert> 节点的id值为Mapper 接口中的方法名称，parameterType 值表示Mapper 对应方法的入参类型，
 而resultMap 值则对应了Mapper 接口表示的返回值类型或者返回结果集的元素类型。
-![](/images/mybatis源码1-3.png)
+![](../../pic/mybatis源码1-3.png)
  
 根据MyBatis 的配置规范配置好后，通过SqlSession.getMapper(XXXMapper.class) 方法，MyBatis 会根据相应的接口声明的方法信息，
 通过[动态代理机制生成一个Mapper 实例]，我们使用Mapper 接口的某一个方法时，MyBatis 会根据这个方法的方法名和参数类型，确定Statement Id，
@@ -137,7 +132,7 @@ BoundSql             表示动态生成的SQL语句以及相应的�
 Configuration        MyBatis所有的配置信息都维持在Configuration对象之中。
 
 它们的关系如下图所示：
-![](/images/mybatis源码1-4.png)
+![](../../pic/mybatis源码1-4.png)
 
 
 # 从MyBatis一次select 查询语句来分析MyBatis的架构设计
@@ -387,7 +382,7 @@ public class SelectDemo {
 
 [SqlSession 的工作过程分析]
 ## 开启一个数据库访问会话---创建SqlSession对象
-![](/images/mybatis源码1-5.png)
+![](../../pic/mybatis源码1-5.png)
 
 SqlSession sqlSession = factory.openSession();
 MyBatis封装了对数据库的访问，把对数据库的会话和事务控制放到了SqlSession对象中。
