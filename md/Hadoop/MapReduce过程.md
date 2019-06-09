@@ -1,11 +1,16 @@
----
-title: MapReduce的运行机制
-categories: 
-- hadoop
-tags:
----
+<!-- TOC -->
 
-# MapReduce的运行机制
+- [1、MapReduce的运行机制](#1mapreduce的运行机制)
+    - [1.1、输入分片（input split）](#11输入分片input-split)
+    - [1.2、map阶段](#12map阶段)
+    - [1.3、combiner阶段](#13combiner阶段)
+    - [1.4、shuffle阶段](#14shuffle阶段)
+    - [1.5、reduce阶段：和map函数一样也是程序员编写的，最终结果是存储在hdfs上的。](#15reduce阶段和map函数一样也是程序员编写的最终结果是存储在hdfs上的)
+- [2、Mapreduce的相关问题](#2mapreduce的相关问题)
+
+<!-- /TOC -->
+
+# 1、MapReduce的运行机制
 
 首先是客户端要编写好mapreduce程序，配置好mapreduce的作业也就是job，接下来就是提交job了，提交job是提交到JobTracker上的，
 这个时候JobTracker就会构建这个job，具体就是分配一个新的job任务的ID值，接下来它会做检查操作，这个检查就是确定输出目录是否存在，
@@ -25,7 +30,8 @@ jobtracker会把整个job状态置为成功，然后当客户端查询job运行�
 如果job中途失败，mapreduce也会有相应机制处理，一般而言如果不是程序员程序本身有bug，mapreduce错误处理机制都能保证提交的job能正常完成。
 下面我从逻辑实体的角度讲解mapreduce运行机制，这些按照时间顺序包括：输入分片（input split）、map阶段、combiner阶段、shuffle阶段和reduce阶段。
 
-## 输入分片（input split）
+## 1.1、输入分片（input split）
+
 在进行map计算之前，mapreduce会根据输入文件计算输入分片（input split），
 每个输入分片（input split）针对一个map任务，输入分片（input split）存储的并非数据本身，而是一个分片长度和一个记录数据的位置的数组，
 输入分片（input split）往往和hdfs的block（块）关系很密切，假如我们设定hdfs的块的大小是64mb，
@@ -33,10 +39,12 @@ jobtracker会把整个job状态置为成功，然后当客户端查询job运行�
 65mb则是两个输入分片（input split）而127mb也是两个输入分片（input split），换句话说我们如果在map计算前做输入分片调整，
 例如合并小文件，那么就会有5个map任务将执行，而且每个map执行的数据大小不均，这个也是mapreduce优化计算的一个关键点。
 
-## map阶段
+## 1.2、map阶段
+
 就是程序员编写好的map函数了，因此map函数效率相对好控制，而且一般map操作都是本地化操作也就是在数据存储节点上进行；
 
-## combiner阶段
+## 1.3、combiner阶段
+
 combiner阶段是程序员可以选择的，combiner其实也是一种reduce操作，因此我们看见WordCount类里是用reduce进行加载的。
 Combiner是一个本地化的reduce操作，它是map运算的后续操作，主要是在map计算出中间文件前做一个简单的合并重复key值的操作，
 例如我们对文件里的单词频率做统计，map计算时候如果碰到一个hadoop的单词就会记录为1，但是这篇文章里hadoop可能会出现n多次，
@@ -45,7 +53,8 @@ Combiner是一个本地化的reduce操作，它是map运算的后续操作，主
 使用它的原则是combiner的输入不会影响到reduce计算的最终输入，例如：如果计算只是求总数，最大值，最小值可以使用combiner，
 但是做平均值计算使用combiner的话，最终的reduce计算结果就会出错。
 
-## shuffle阶段
+## 1.4、shuffle阶段
+
 将map的输出作为reduce的输入的过程就是shuffle了，这个是mapreduce优化的重点地方。这里我不讲怎么优化shuffle阶段，
 
 讲讲shuffle阶段的原理，因为大部分的书籍里都没讲清楚shuffle阶段。Shuffle一开始就是map阶段做输出操作，一般mapreduce计算的都是海量数据，
@@ -65,22 +74,26 @@ map会合并这些输出文件。这个过程里还会有一个Partitioner操作
 复制操作时reduce会开启几个复制线程，这些线程默认个数是5个，程序员也可以在配置文件更改复制线程的个数，这个复制过程和map写入磁盘过程类似，
 也有阀值和内存大小，阀值一样可以在配置文件里配置，而内存大小是直接使用reduce的tasktracker的内存大小，
 复制时候reduce还会进行排序操作和合并文件操作，这些操作完了就会进行reduce计算了。
-## reduce阶段：和map函数一样也是程序员编写的，最终结果是存储在hdfs上的。
 
-![](/images/mapreduce过程1.png)
-![](/images/mapreduce过程2.png)
-![](/images/mapreduce过程3.png)
+## 1.5、reduce阶段：和map函数一样也是程序员编写的，最终结果是存储在hdfs上的。
+
+![](../../pic/mapreduce过程1.png)
+![](../../pic/mapreduce过程2.png)
+![](../../pic/mapreduce过程3.png)
 
 
-# Mapreduce的相关问题
+# 2、Mapreduce的相关问题
+
 2.1、jobtracker的单点故障：jobtracker和hdfs的namenode一样也存在单点故障，单点故障一直是hadoop被人诟病的大问题，
 为什么hadoop的做的文件系统和mapreduce计算框架都是高容错的，但是最重要的管理节点的故障机制却如此不好，
 我认为主要是namenode和jobtracker在实际运行中都是在内存操作，而做到内存的容错就比较复杂了，只有当内存数据被持久化后容错才好做，
 namenode和jobtracker都可以备份自己持久化的文件，但是这个持久化都会有延迟，因此真的出故障，任然不能整体恢复，另外hadoop框架里包含zookeeper框架，zookeeper可以结合jobtracker，用几台机器同时部署jobtracker，保证一台出故障，有一台马上能补充上，不过这种方式也没法恢复正在跑的mapreduce任务。
+
 2.2、做mapreduce计算时候，输出一般是一个文件夹，而且该文件夹是不能存在，而且这个检查做的很早，当我们提交job时候就会进行，
 mapreduce之所以这么设计是保证数据可靠性，如果输出目录存在reduce就搞不清楚你到底是要追加还是覆盖，
 不管是追加和覆盖操作都会有可能导致最终结果出问题，mapreduce是做海量数据计算，一个生产计算的成本很高，
 例如一个job完全执行完可能要几个小时，因此一切影响错误的情况mapreduce是零容忍的。
+
 2.3、Mapreduce还有一个InputFormat和OutputFormat，我们在编写map函数时候发现map方法的参数是之间操作行数据，
 没有牵涉到InputFormat，这些事情在我们new Path时候mapreduce计算框架帮我们做好了，
 而OutputFormat也是reduce帮我们做好了，我们使用什么样的输入文件，就要调用什么样的InputFormat，

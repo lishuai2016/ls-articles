@@ -7,6 +7,42 @@ tags:
 
 #Hadoop知识点整理
 
+
+
+
+
+hadoop开发常见问题
+
+
+资料
+http://www.raincent.com/content-85-8162-2.html
+
+hadoop版本问题
+当前Hadoop版本比较混乱，让很多用户不知所措。实际上，当前Hadoop只有两个版本：Hadoop 1.0和Hadoop 2.0，其中，Hadoop 1.0由一个分布式文件系统HDFS和一个离线计算框架MapReduce组成，而Hadoop 2.0则包含一个支持NameNode横向扩展的HDFS，一个资源管理系统YARN和一个运行在YARN上的离线计算框架MapReduce。相比于Hadoop 1.0，Hadoop 2.0功能更加强大，且具有更好的扩展性、性能，并支持多种计算框架。
+
+
+
+
+hadoop的集群是基于master/slave模式，namenode和jobtracker属于master，datanode和tasktracker属于slave，master只有一个，而slave有多个
+
+SecondaryNameNode内存需求和NameNode在一个数量级上，所以通常secondary NameNode（运行在单独的物理机器上）和NameNode运行在不同的机器上。
+JobTracker和TaskTracker
+JobTracker  对应于 NameNode
+TaskTracker 对应于 DataNode
+DataNode 和NameNode 是针对数据存放来而言的
+JobTracker和TaskTracker是对于MapReduce执行而言的
+
+mapreduce中几个主要概念，mapreduce整体上可以分为这么几条执行线索：
+jobclient，JobTracker与TaskTracker。
+1、JobClient会在用户端通过JobClient类将应用已经配置参数打包成jar文件存储到hdfs，
+并把路径提交到Jobtracker,然后由JobTracker创建每一个Task（即MapTask和ReduceTask）
+并将它们分发到各个TaskTracker服务中去执行
+2、JobTracker是一个master服务，软件启动之后JobTracker接收Job，负责调度Job的每一个子任务task运行于TaskTracker上，
+并监控它们，如果发现有失败的task就重新运行它。一般情况应该把JobTracker部署在单独的机器上。
+3、TaskTracker是运行在多个节点上的slaver服务。TaskTracker主动与JobTracker通信，接收作业，并负责直接执行每一个任务。
+TaskTracker都需要运行在HDFS的DataNode上
+
+
 1、在mr环节中，那些环节需要优化，如何优化，请详细说明。
     1.1、 setNumReduceTasks  适当的设置reduce的数量，如果数据量比较大，那么可以增加reduce的数量
     1.2、适当的时候使用 combine 函数，减少网络传输数据量
