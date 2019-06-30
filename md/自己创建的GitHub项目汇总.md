@@ -15,6 +15,7 @@
 - [ls-springconfig-repo](#ls-springconfig-repo)
 - [WebRTC01](#webrtc01)
 - [源码学习项目](#源码学习项目)
+    - [0、mybatis](#0mybatis)
     - [1、netty](#1netty)
     - [2、dubbo](#2dubbo)
 
@@ -48,16 +49,15 @@ https://github.com/lishuai2016/ls
 
 
 # ls-bigdata
-大数据各个组件的开发学习
-其中包括：
-zookeeper
-Hadoop
-MapReduce
-flume
-kafka
-HBASE
-storm
-spark
+大数据各个组件的开发学习,其中包括：
+- zookeeper
+- Hadoop
+- MapReduce
+- flume
+- kafka
+- HBASE
+- storm
+- spark
 
 
 https://github.com/lishuai2016/ls-bigdata
@@ -107,14 +107,26 @@ https://github.com/lishuai2016/WebRTC01
 
 # 源码学习项目
 
+## 0、mybatis
+
+- [mybatis-3](https://github.com/lishuai2016/mybatis-3/tree/ls_b_f_master_20190414)
+
+分支：ls_b_f_master_20190414
+
+
+
 ## 1、netty
-GitHub地址：https://github.com/lishuai2016/ls-netty
-本地位置：Desktop\netty\ls-netty\netty-4.1
+
+- [ls-netty](https://github.com/lishuai2016/ls-netty)
+
+
 
 
 
 ## 2、dubbo
-GitHub地址：https://github.com/lishuai2016/incubator-dubbo
+
+- [incubator-dubbo](https://github.com/lishuai2016/incubator-dubbo)
+
 本地地址：D:\opencode\incubator-dubbo
 
 
